@@ -16,15 +16,15 @@ if koly_pos != -1:
     
     with open("bin/binpack.dmg", "wb") as out:
         out.write(data[dmg_start:dmg_end])
-    print(f"[+] binpack.dmg tamam! Boyut: {exact_dmg_size} bayt (Baslangic: {dmg_start})")
+    print(f"[+] binpack.dmg Is OK! Byte: {exact_dmg_size} bayt (Baslangic: {dmg_start})")
 
 rd_start = 4667140
 try:
     rd_data = zlib.decompress(data[rd_start:], -15)
     with open("bin/ramdisk.dmg", "wb") as out:
         out.write(rd_data)
-    print(f"[+] ramdisk.dmg acildi! Boyut: {len(rd_data)} bayt")
+    print(f"[+] ramdisk.dmg Opened! Byte: {len(rd_data)} bayt")
 except Exception:
     with open("bin/ramdisk.dmg", "wb") as out:
         out.write(data[rd_start:])
-    print(f"[+] ramdisk.dmg ham olarak kaydedildi! Boyut: {len(data) - rd_start} bayt")
+    print(f"[+] ramdisk.img Success Saved! Byte: {len(data) - rd_start} bayt")
