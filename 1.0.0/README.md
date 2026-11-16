@@ -1,4 +1,5 @@
-# Pastico CLI
+# Pastico CLI 1.0.0
+
 
 **Pastico** is a fast, lightweight, and 100% native Windows command-line (CLI) jailbreak and device diagnostics utility built in pure C for **Apple A11 Bionic** devices running **iOS 16.7**.
 
