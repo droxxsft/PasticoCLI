@@ -1,19 +1,22 @@
-# Pastico CLI v1.0.1-release (iOS 16.7 - A11 Rootless)
+# Pastico v1.0.1-release (iOS 16.7 - A11 Rootless)
 
 ### What's New in v1.0.1
 
-- **New `pastico jb` Command:** Replaced `boot` with `jb` as the primary Rootless jailbreak command.
-- **Automatic Normal-to-Recovery Transition:** Automatically detects unlocked iOS devices in Normal Mode and reboots them into Recovery Mode via `ideviceenterrecovery` before starting the DFU sequence.
-- **Interactive `palera1n`-Style DFU Assistant:** Added a live step-by-step countdown timer (4s Side + Volume Down -> 10s Volume Down) with real-time `0x8015` DFU hardware detection.
-- **Safe Mode Support (`pastico jb --safe-mode`):** Added `--safe-mode` flag to boot with `xargs rootdev=md0 -s`, disabling tweaks for easy troubleshooting.
-- **Reworked `pastico boot` & `pastico reboot`:**
-  - `pastico boot` now cleanly exits DFU/Recovery mode and boots into stock iOS without jailbreaking.
-  - `pastico reboot` now supports restarting devices in both Normal Mode (`idevicediagnostics`) and Recovery/DFU Mode (`irecovery`).
-- **Removed Redundant `check` Command:** Streamlined CLI commands by integrating hardware checks directly into the `jb` workflow.
+- **New Rootless Jailbreak Workflow (`jb`):** Replaced `boot` with `jb` as the primary jailbreak action, featuring automatic Normal-to-Recovery mode transition and an interactive `palera1n`-style DFU countdown assistant.
+- **Safe Mode Support (`--safe-mode`):** Added Safe Mode booting to load the jailbroken environment with tweaks disabled for troubleshooting.
+- **Reworked Stock Boot & Restart (`boot` / `reboot`):**
+  - `boot` now cleanly exits DFU/Recovery mode and boots standard stock iOS.
+  - `reboot` supports restarting connected devices in both Normal Mode and Recovery/DFU Mode.
+- **Expanded Device Diagnostics (`deviceinfo`):**
+  - Added **ECID (Hex & Decimal)** and **ChipID (`0x8015`)** hardware reporting.
+  - Added **Model Number & Region** detection.
+  - Added real-time **Battery Level & Charging Status** monitoring.
+  - Added automatic **Pastico Compatibility Check** (`A11 + iOS 16.7` verification).
+  - Added **`--save`** option to export full hardware and jailbreak reports to `Pastico_Device_Report.txt`.
 
-### Requirements
+### Supported Devices & Requirements
 
 - **Hardware:** iPhone 8, iPhone 8 Plus, iPhone X (`A11 Bionic - CPID: 0x8015`)
-- **Firmware:** iOS 16.7 Only (16.7.1+ is not supported)
-- **Host OS:** Windows 10 / Windows 11 (x64)
-- **Important:** Disable Passcode, Touch ID, and Face ID before running `pastico jb`.
+- **Firmware:** **iOS 16.7 Only** _(16.7.1 and newer are NOT supported)_
+- **Host OS:** Windows 10 / Windows 11 (64-bit)
+- **Important:** Passcode, Touch ID, and Face ID must be disabled before jailbreaking.
